@@ -11,10 +11,10 @@ import (
 	"gorm.io/gorm"
 )
 
-func RegisterRoutesV1(app *fiber.App, chConn *gorm.DB, cfg *config.Config) {
+func RegisterRoutes(app *fiber.App, mysqlConn *gorm.DB, cfg *config.Config) {
 
 	loginRouter := app.Group("/api/v1/auth")
-	loginRepository := repository.NewLoginRepository(chConn)
+	loginRepository := repository.NewLoginRepository(mysqlConn)
 	loginUsecase := usecase.NewLoginUsecase(loginRepository, cfg.JWTSecret, cfg.JWTSecretRefresh, time.Duration(cfg.TokenExpiryDuration), time.Duration(cfg.TokenRefreshExpiryDuration))
 	apiHandler := api.NewLoginHandler(loginUsecase)
 	apiHandler.RegisterRoutes(loginRouter)

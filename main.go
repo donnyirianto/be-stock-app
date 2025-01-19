@@ -27,7 +27,7 @@ import (
 
 func main() {
 
-	pathConfig := flag.String("config", "./.env", "Path Config")
+	pathConfig := flag.String("config", "./", "Path Config")
 	flag.Parse()
 
 	// Initialize logger

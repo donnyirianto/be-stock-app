@@ -5,9 +5,10 @@ import (
 	"gorm.io/gorm"
 
 	"github.com/donnyirianto/be-stock-app/config"
+	auth "github.com/donnyirianto/be-stock-app/modules/auth"
 )
 
 func RegisterRoutes(app *fiber.App, cfg *config.Config, mysqlConn *gorm.DB) {
 
-	//reportSo.RegisterRoutesV3(app, mysqlConn, cfg) // Report SO
+	auth.RegisterRoutes(app, mysqlConn, cfg) // Auth
 }
