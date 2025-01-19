@@ -1,0 +1,17 @@
+[Unit]
+Description=ORI SO Dana Kas
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=edpho
+Group=edpho
+LimitCORE=infinity
+WorkingDirectory=/home/edpho/ori/ori-so-dana-kas
+ExecStart=/home/edpho/ori/ori-so-dana-kas/build/ori-so-dana-kas -config=/home/edpho/ori/ori-shared-config
+Restart=on-failure
+RestartSec=3s
+
+[Install]
+WantedBy=multi-user.target
