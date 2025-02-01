@@ -48,8 +48,8 @@ func main() {
 
 	// Initialize Fiber app
 	app := fiber.New(fiber.Config{
-		ServerHeader:            "ORI SO Dana Kas",
-		AppName:                 "ori-so-dana-kas",
+		ServerHeader:            "Stock APP",
+		AppName:                 "stock-app",
 		JSONEncoder:             sonic.Marshal,
 		JSONDecoder:             sonic.Unmarshal,
 		Prefork:                 cfg.App.Prefork,

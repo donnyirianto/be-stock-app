@@ -9,11 +9,12 @@ import (
 )
 
 // ActLogin handles the login logic
-func (uc *LoginUsecaseImpl) RefreshToken(username, nama string) (*utils.Response[map[string]interface{}], error) {
+func (uc *LoginUsecaseImpl) RefreshToken(username, nama, role string) (*utils.Response[map[string]interface{}], error) {
 
 	claims := jwt.MapClaims{
 		"username": username,
 		"nama":     nama,
+		"role":     role,
 		"exp":      time.Now().Add(time.Hour * uc.tokenExpiryDuration).Unix(),
 	}
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
@@ -26,6 +27,7 @@ func (uc *LoginUsecaseImpl) RefreshToken(username, nama string) (*utils.Response
 	claimsRefreshToken := jwt.MapClaims{
 		"username": username,
 		"nama":     nama,
+		"role":     role,
 		"exp":      time.Now().Add(time.Hour * uc.tokenRefreshExpiryDuration).Unix(),
 	}
 

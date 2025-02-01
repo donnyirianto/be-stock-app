@@ -22,5 +22,5 @@ func NewLoginHandler(loginUsecase usecase.LoginUsecase) *LoginHandler {
 func (h *LoginHandler) RegisterRoutes(router fiber.Router) {
 	// Define user-related routes here
 	router.Post("/login", h.Login)
-	router.Get("/", h.RefreshToken)
+	router.Get("/refresh-token", h.RefreshToken)
 }

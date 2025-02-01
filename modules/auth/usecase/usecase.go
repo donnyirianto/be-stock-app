@@ -9,7 +9,7 @@ import (
 
 type LoginUsecase interface {
 	Login(*domain.LoginRequest) (*utils.Response[map[string]interface{}], error)
-	RefreshToken(username, nama string) (*utils.Response[map[string]interface{}], error)
+	RefreshToken(username, nama, role string) (*utils.Response[map[string]interface{}], error)
 }
 
 type LoginUsecaseImpl struct {

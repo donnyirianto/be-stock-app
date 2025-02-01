@@ -12,8 +12,9 @@ func (h *LoginHandler) RefreshToken(c *fiber.Ctx) error {
 	claims := user.Claims.(jwt.MapClaims)
 	username := claims["username"].(string)
 	nama := claims["nama"].(string)
+	role := claims["role"].(string)
 
-	resultRefresh, err := h.loginUsecase.RefreshToken(username, nama)
+	resultRefresh, err := h.loginUsecase.RefreshToken(username, nama, role)
 	if err != nil {
 
 		return utils.SendJSONResponseError(c, fiber.StatusUnauthorized, "error", err.Error())
