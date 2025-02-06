@@ -64,11 +64,11 @@ func (uc *LoginUsecaseImpl) Login(req *domain.LoginRequest) (*utils.Response[map
 	}
 
 	result := map[string]interface{}{
-		"username":      req.Username,
-		"nama":          repoLogin.Nama,
-		"role":          repoLogin.IdRole,
-		"token":         tokenString,
-		"refresh-token": refreshTokenString,
+		"username":     req.Username,
+		"nama":         repoLogin.Nama,
+		"role":         repoLogin.IdRole,
+		"accessToken":  tokenString,
+		"refreshToken": refreshTokenString,
 	}
 
 	return &utils.Response[map[string]interface{}]{

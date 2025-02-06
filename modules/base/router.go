@@ -16,6 +16,17 @@ func RegisterRoutes(app *fiber.App, mysqlConn *gorm.DB, cfg *config.Config) {
 	baseRouter := app.Group("/api/v1/base")
 	baseRouter.Use(jwtware.New(jwtware.Config{
 		SigningKey: jwtware.SigningKey{Key: []byte(cfg.JWTSecret)},
+		ErrorHandler: func(c *fiber.Ctx, err error) error {
+			// Custom response format for JWT errors
+			if err != nil {
+				return c.Status(fiber.StatusForbidden).JSON(fiber.Map{
+					"code":    fiber.StatusForbidden,
+					"status":  "error",
+					"message": "Invalid or expired JWT",
+				})
+			}
+			return nil
+		},
 	}))
 	baseRepository := repository.NewBaseRepository(mysqlConn)
 	baseUsecase := usecase.NewBaseUsecase(baseRepository)

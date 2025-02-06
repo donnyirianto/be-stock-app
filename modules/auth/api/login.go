@@ -14,7 +14,7 @@ func (h *LoginHandler) Login(c *fiber.Ctx) error {
 		// Return error response using SendJSONResponseError
 		return utils.SendJSONResponseError(c, fiber.StatusBadRequest, "error", "Invalid request payload")
 	}
-	utils.GetLogger().Info("sini")
+
 	// Validate request body
 	if err := h.validate.Struct(&requestBody); err != nil {
 		// Return error response using SendJSONResponseError

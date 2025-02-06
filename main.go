@@ -89,7 +89,9 @@ func registerMiddleware(app *fiber.App, cfg *config.Config) {
 	}))
 
 	// CORS middleware
-	app.Use(cors.New())
+	app.Use(cors.New(cors.Config{
+		AllowMethods: "GET,POST,PUT,DELETE"},
+	))
 
 	//Rate Limit
 	app.Use(limiter.New(limiter.Config{

@@ -39,8 +39,8 @@ func (uc *LoginUsecaseImpl) RefreshToken(username, nama, role string) (*utils.Re
 	}
 
 	result := map[string]interface{}{
-		"token":         tokenString,
-		"refresh_token": refreshTokenString,
+		"accessToken":  tokenString,
+		"refreshToken": refreshTokenString,
 	}
 
 	return &utils.Response[map[string]interface{}]{
