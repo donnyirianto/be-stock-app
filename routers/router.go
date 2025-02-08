@@ -8,6 +8,7 @@ import (
 	auth "github.com/donnyirianto/be-stock-app/modules/auth"
 	base "github.com/donnyirianto/be-stock-app/modules/base"
 	menu "github.com/donnyirianto/be-stock-app/modules/menu"
+	users "github.com/donnyirianto/be-stock-app/modules/users"
 )
 
 func RegisterRoutes(app *fiber.App, cfg *config.Config, mysqlConn *gorm.DB) {
@@ -16,5 +17,6 @@ func RegisterRoutes(app *fiber.App, cfg *config.Config, mysqlConn *gorm.DB) {
 	base.RegisterRoutes(app, mysqlConn, cfg) // Base
 
 	//Settings
-	menu.RegisterRoutes(app, mysqlConn, cfg) // Menu
+	menu.RegisterRoutes(app, mysqlConn, cfg)  // Menu
+	users.RegisterRoutes(app, mysqlConn, cfg) // Users
 }
