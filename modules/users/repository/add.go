@@ -11,9 +11,9 @@ import (
 
 func (r *UsersRepositoryImpl) AddUsers(req *domain.RequestData) (string, error) {
 
-	querySql := `UPDATE users set username = ?, password= ? ,nama = ?,aktif = ?;`
+	querySql := `INSERT INTO users SET username = ?, password= ? ,nama = ?,aktif = ?, id_role = ?;`
 
-	err := r.mysqlConn.Exec(querySql, req.Username, req.Password, req.Nama, req.Aktif).Error
+	err := r.mysqlConn.Exec(querySql, req.Username, req.Password, req.Nama, req.Aktif, req.IdRole).Error
 	if err != nil {
 		utils.GetLogger().Error("Error:", zap.Error(err))
 		return "", fmt.Errorf("Server sedang sibuk, silahkan dapat dicoba beberapa saat lagi!")

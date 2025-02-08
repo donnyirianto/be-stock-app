@@ -9,7 +9,7 @@ import (
 	"github.com/donnyirianto/be-stock-app/utils"
 )
 
-func (r *UsersRepositoryImpl) EditUsers(id int) ([]*domain.ResponseData, error) {
+func (r *UsersRepositoryImpl) EditUsers(id string) ([]*domain.ResponseData, error) {
 
 	var respData []*domain.ResponseData
 

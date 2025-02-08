@@ -23,9 +23,9 @@ type ResponseData struct {
 type UsersRepository interface {
 	GetUsers() ([]*ResponseData, error)
 	AddUsers(req *RequestData) (string, error)
-	EditUsers(id int) ([]*ResponseData, error)
-	SaveEditUsers(req *RequestData, id int) (string, error)
-	DeleteUsers(id int) (string, error)
+	EditUsers(id string) ([]*ResponseData, error)
+	SaveEditUsers(req *RequestData, id string) (string, error)
+	DeleteUsers(id string) (string, error)
 }
 
 var ErrInvalidCredentials = errors.New("invalid credentials")

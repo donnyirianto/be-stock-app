@@ -4,7 +4,7 @@ import (
 	"github.com/donnyirianto/be-stock-app/utils"
 )
 
-func (uc *usersUsecaseImpl) DeleteUsers(id int) (*utils.Response[map[string]any], error) {
+func (uc *usersUsecaseImpl) DeleteUsers(id string) (*utils.Response[map[string]any], error) {
 
 	_, err := uc.usersRepository.DeleteUsers(id)
 	if err != nil {

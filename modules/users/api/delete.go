@@ -8,10 +8,7 @@ import (
 
 func (h *UsersHandler) DeleteUsers(c *fiber.Ctx) error {
 
-	id, err := c.ParamsInt("id")
-	if err != nil {
-		return utils.SendJSONResponseError(c, fiber.StatusBadRequest, "error", "Payload tidak sesuai!")
-	}
+	id := c.Params("id")
 
 	resp, err := h.users.DeleteUsers(id)
 	if err != nil {

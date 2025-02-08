@@ -13,7 +13,7 @@ func (r *UsersRepositoryImpl) GetUsers() ([]*domain.ResponseData, error) {
 
 	var respData []*domain.ResponseData
 
-	querySql := `SELECT * from m_users`
+	querySql := `SELECT a.username,a.nama,a.id_role,b.nama AS nama_role, a.aktif FROM users a LEFT JOIN roles b ON a.id_role = b.id`
 
 	err := r.mysqlConn.Raw(querySql).Scan(&respData).Error
 	if err != nil {

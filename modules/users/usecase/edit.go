@@ -2,7 +2,7 @@ package usecase
 
 import "github.com/donnyirianto/be-stock-app/utils"
 
-func (uc *usersUsecaseImpl) EditUsers(id int) (*utils.Response[map[string]any], error) {
+func (uc *usersUsecaseImpl) EditUsers(id string) (*utils.Response[map[string]any], error) {
 
 	resp, err := uc.usersRepository.EditUsers(id)
 	if err != nil {

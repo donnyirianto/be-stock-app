@@ -8,7 +8,7 @@ import (
 	"github.com/donnyirianto/be-stock-app/utils"
 )
 
-func (r *UsersRepositoryImpl) DeleteUsers(id int) (string, error) {
+func (r *UsersRepositoryImpl) DeleteUsers(id string) (string, error) {
 
 	querySql := `DELETE FROM users where username = ?;`
 
