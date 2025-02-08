@@ -11,10 +11,10 @@ func (uc *produkUsecaseImpl) GetProduk() (*utils.Response[map[string]any], error
 
 	if len(resp) == 0 {
 		return &utils.Response[map[string]any]{
-			Code:    404,
+			Code:    200,
 			Status:  "not found",
 			Message: "Data Not Found",
-			Data:    map[string]any{},
+			Data:    map[string]any{"produk": []map[string]any{}},
 		}, nil
 	}
 	return &utils.Response[map[string]any]{

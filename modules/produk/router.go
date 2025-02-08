@@ -15,7 +15,7 @@ import (
 
 func RegisterRoutes(app *fiber.App, mysqlConn *gorm.DB, cfg *config.Config) {
 
-	produkRouter := app.Group("/api/v1/settings/produk")
+	produkRouter := app.Group("/api/v1/produk")
 	produkRouter.Use(jwtware.New(jwtware.Config{
 		SigningKey: jwtware.SigningKey{Key: []byte(cfg.JWTSecret)},
 		ErrorHandler: func(c *fiber.Ctx, err error) error {
