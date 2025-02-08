@@ -25,6 +25,7 @@ type MenuRepository interface {
 	GetMenu() ([]*ResponseData, error)
 	AddMenu(req *RequestData) (string, error)
 	EditMenu(id int) ([]*ResponseData, error)
+	SaveEditMenu(req *RequestData, id int) (string, error)
 	DeleteMenu(id int) (string, error)
 }
 

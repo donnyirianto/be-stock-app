@@ -25,5 +25,6 @@ func (h *MenuHandler) RegisterRoutes(router fiber.Router) {
 	router.Get("/", h.GetMenu)
 	router.Post("/", h.AddMenu)
 	router.Get("/edit/:id", h.EditMenu)
+	router.Post("/edit/:id", h.SaveEditMenu)
 	router.Delete("/:id", h.DeleteMenu)
 }

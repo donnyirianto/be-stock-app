@@ -9,6 +9,7 @@ type MenuUsecase interface {
 	GetMenu() (*utils.Response[map[string]any], error)
 	AddMenu(*domain.RequestData) (*utils.Response[map[string]any], error)
 	EditMenu(id int) (*utils.Response[map[string]any], error)
+	SaveEditMenu(req *domain.RequestData, id int) (*utils.Response[map[string]any], error)
 	DeleteMenu(id int) (*utils.Response[map[string]any], error)
 }
 
