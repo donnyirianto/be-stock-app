@@ -7,9 +7,9 @@ import (
 	"github.com/redis/go-redis/v9"
 )
 
-func GetCache(ctx context.Context, redisConn *redis.Client, keyRedis string) (map[string]interface{}, error) {
+func GetCache(ctx context.Context, redisConn *redis.Client, keyRedis string) (map[string]any, error) {
 
-	var resData map[string]interface{}
+	var resData map[string]any
 
 	val, err := redisConn.Get(ctx, keyRedis).Result()
 	if err != nil && err != redis.Nil {

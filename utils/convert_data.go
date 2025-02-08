@@ -6,7 +6,7 @@ import (
 	"github.com/shopspring/decimal"
 )
 
-func ConvertToInt(value interface{}) (uint64, bool) {
+func ConvertToInt(value any) (uint64, bool) {
 	switch v := value.(type) {
 	case int:
 		return uint64(v), true
@@ -43,7 +43,7 @@ func ConvertToInt(value interface{}) (uint64, bool) {
 	}
 }
 
-func ConvertToDecimal(value interface{}) (decimal.Decimal, bool) {
+func ConvertToDecimal(value any) (decimal.Decimal, bool) {
 	switch v := value.(type) {
 	case int:
 		return decimal.NewFromInt(int64(v)), true

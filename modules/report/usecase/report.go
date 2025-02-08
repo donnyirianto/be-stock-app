@@ -13,7 +13,7 @@ func (uc *reportUsecaseImpl) Report(ctx context.Context, username string, req *d
 		return nil, err
 	}
 	if len(resp) == 0 {
-		respData := []map[string]interface{}{}
+		respData := []map[string]any{}
 		return respData, nil
 	}
 

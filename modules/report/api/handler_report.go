@@ -16,7 +16,7 @@ func (h *ReportHandler) Report(c *fiber.Ctx) error {
 
 	user := c.Locals("user").(*jwt.Token)
 	claims := user.Claims.(jwt.MapClaims)
-	userDetails := claims["user"].(map[string]interface{})
+	userDetails := claims["user"].(map[string]any)
 	username := userDetails["username"].(string)
 
 	var requestBody domain.RequestData

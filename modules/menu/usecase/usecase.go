@@ -6,10 +6,10 @@ import (
 )
 
 type MenuUsecase interface {
-	GetMenu() (*utils.Response[map[string]interface{}], error)
-	AddMenu(*domain.RequestData) (*utils.Response[map[string]interface{}], error)
-	EditMenu(id int) (*utils.Response[map[string]interface{}], error)
-	DeleteMenu(id int) (*utils.Response[map[string]interface{}], error)
+	GetMenu() (*utils.Response[map[string]any], error)
+	AddMenu(*domain.RequestData) (*utils.Response[map[string]any], error)
+	EditMenu(id int) (*utils.Response[map[string]any], error)
+	DeleteMenu(id int) (*utils.Response[map[string]any], error)
 }
 
 type menuUsecaseImpl struct {

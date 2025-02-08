@@ -19,8 +19,8 @@ func RegisterRoutes(app *fiber.App, mysqlConn *gorm.DB, cfg *config.Config) {
 		ErrorHandler: func(c *fiber.Ctx, err error) error {
 			// Custom response format for JWT errors
 			if err != nil {
-				return c.Status(fiber.StatusForbidden).JSON(fiber.Map{
-					"code":    fiber.StatusForbidden,
+				return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
+					"code":    fiber.StatusUnauthorized,
 					"status":  "error",
 					"message": "Invalid or expired JWT",
 				})

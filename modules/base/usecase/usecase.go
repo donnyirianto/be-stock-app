@@ -8,7 +8,7 @@ import (
 )
 
 type BaseUsecase interface {
-	GetMenu(ctx context.Context, role string) (*utils.Response[map[string]interface{}], error)
+	GetMenu(ctx context.Context, role string) (*utils.Response[map[string]any], error)
 	TreeBase(baseItems []*domain.BaseItem) ([]*domain.NewBaseItem, error)
 }
 

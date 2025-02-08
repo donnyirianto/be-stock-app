@@ -11,7 +11,7 @@ import (
 )
 
 // ActLogin handles the login logic
-func (uc *LoginUsecaseImpl) Login(req *domain.LoginRequest) (*utils.Response[map[string]interface{}], error) {
+func (uc *LoginUsecaseImpl) Login(req *domain.LoginRequest) (*utils.Response[map[string]any], error) {
 
 	repoLogin, err := uc.loginRepository.ActLogin(req.Username)
 	if err != nil {
@@ -19,7 +19,7 @@ func (uc *LoginUsecaseImpl) Login(req *domain.LoginRequest) (*utils.Response[map
 	}
 
 	if repoLogin == nil {
-		return &utils.Response[map[string]interface{}]{
+		return &utils.Response[map[string]any]{
 			Code:    404,
 			Status:  "error",
 			Message: "Username belum terdaftar / terblokir",
@@ -28,7 +28,7 @@ func (uc *LoginUsecaseImpl) Login(req *domain.LoginRequest) (*utils.Response[map
 	}
 
 	if err := bcrypt.CompareHashAndPassword([]byte(repoLogin.Password), []byte(req.Password)); err != nil {
-		return &utils.Response[map[string]interface{}]{
+		return &utils.Response[map[string]any]{
 			Code:    401,
 			Status:  "error",
 			Message: "Invalid username or password",
@@ -63,7 +63,7 @@ func (uc *LoginUsecaseImpl) Login(req *domain.LoginRequest) (*utils.Response[map
 		return nil, err
 	}
 
-	result := map[string]interface{}{
+	result := map[string]any{
 		"username":     req.Username,
 		"nama":         repoLogin.Nama,
 		"role":         repoLogin.IdRole,
@@ -71,7 +71,7 @@ func (uc *LoginUsecaseImpl) Login(req *domain.LoginRequest) (*utils.Response[map
 		"refreshToken": refreshTokenString,
 	}
 
-	return &utils.Response[map[string]interface{}]{
+	return &utils.Response[map[string]any]{
 		Code:    200,
 		Status:  "success",
 		Message: "Login successful",

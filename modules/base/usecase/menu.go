@@ -7,7 +7,7 @@ import (
 	"github.com/donnyirianto/be-stock-app/utils"
 )
 
-func (uc *BaseUsecaseImpl) GetMenu(ctx context.Context, role string) (*utils.Response[map[string]interface{}], error) {
+func (uc *BaseUsecaseImpl) GetMenu(ctx context.Context, role string) (*utils.Response[map[string]any], error) {
 
 	var resBase []*domain.BaseItem
 	var formatBase []*domain.NewBaseItem
@@ -22,11 +22,11 @@ func (uc *BaseUsecaseImpl) GetMenu(ctx context.Context, role string) (*utils.Res
 		return nil, err
 	}
 
-	return &utils.Response[map[string]interface{}]{
+	return &utils.Response[map[string]any]{
 		Code:    200,
 		Status:  "success",
 		Message: "Get Data Menu - Success",
-		Data:    map[string]interface{}{"menu": formatBase},
+		Data:    map[string]any{"menu": formatBase},
 	}, nil
 
 }

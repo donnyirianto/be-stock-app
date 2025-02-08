@@ -6,7 +6,7 @@ import (
 	"dario.cat/mergo"
 )
 
-func MergeByKdcab(base, additional []map[string]interface{}) []map[string]interface{} {
+func MergeByKdcab(base, additional []map[string]any) []map[string]any {
 	for i, baseItem := range base {
 		for _, addItem := range additional {
 			if baseItem["kdcab"] == addItem["kdcab"] {
@@ -19,7 +19,7 @@ func MergeByKdcab(base, additional []map[string]interface{}) []map[string]interf
 	return base
 }
 
-func MergeByToko(base, additional []map[string]interface{}) []map[string]interface{} {
+func MergeByToko(base, additional []map[string]any) []map[string]any {
 	for i, baseItem := range base {
 		for _, addItem := range additional {
 			if baseItem["toko"] == addItem["toko"] {
@@ -31,7 +31,7 @@ func MergeByToko(base, additional []map[string]interface{}) []map[string]interfa
 	}
 	return base
 }
-func MergeByCatcod(base, additional []map[string]interface{}) []map[string]interface{} {
+func MergeByCatcod(base, additional []map[string]any) []map[string]any {
 	for i, baseItem := range base {
 		for _, addItem := range additional {
 			if baseItem["cat_cod"] == addItem["cat_cod"] {
@@ -44,7 +44,7 @@ func MergeByCatcod(base, additional []map[string]interface{}) []map[string]inter
 	return base
 }
 
-func MergeByPlu(base, additional []map[string]interface{}) []map[string]interface{} {
+func MergeByPlu(base, additional []map[string]any) []map[string]any {
 	for i, baseItem := range base {
 		for _, addItem := range additional {
 			if baseItem["prdcd"] == addItem["prdcd"] {
@@ -57,7 +57,7 @@ func MergeByPlu(base, additional []map[string]interface{}) []map[string]interfac
 	return base
 }
 
-func MergeByDep(base, additional []map[string]interface{}) []map[string]interface{} {
+func MergeByDep(base, additional []map[string]any) []map[string]any {
 	for i, baseItem := range base {
 		for _, addItem := range additional {
 			if baseItem["departement"] == addItem["departement"] {

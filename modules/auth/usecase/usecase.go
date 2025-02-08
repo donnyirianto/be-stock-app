@@ -8,8 +8,8 @@ import (
 )
 
 type LoginUsecase interface {
-	Login(*domain.LoginRequest) (*utils.Response[map[string]interface{}], error)
-	RefreshToken(username, nama, role string) (*utils.Response[map[string]interface{}], error)
+	Login(*domain.LoginRequest) (*utils.Response[map[string]any], error)
+	RefreshToken(username, nama, role string) (*utils.Response[map[string]any], error)
 }
 
 type LoginUsecaseImpl struct {

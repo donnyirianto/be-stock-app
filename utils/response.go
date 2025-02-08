@@ -14,9 +14,9 @@ type ResponseFormat[T any] struct {
 
 // ResponseFormatError digunakan untuk menangani error
 type ResponseFormatError struct {
-	Code    int         `json:"code"`
-	Status  string      `json:"status"`
-	Message interface{} `json:"message"`
+	Code    int    `json:"code"`
+	Status  string `json:"status"`
+	Message any    `json:"message"`
 }
 
 // Fungsi untuk mengirimkan respons JSON
@@ -31,7 +31,7 @@ func SendJSONResponse[T any](c *fiber.Ctx, code int, status string, message stri
 }
 
 // Fungsi untuk mengirimkan respons error dalam format JSON
-func SendJSONResponseError(c *fiber.Ctx, code int, status string, message interface{}) error {
+func SendJSONResponseError(c *fiber.Ctx, code int, status string, message any) error {
 	response := ResponseFormatError{
 		Code:    code,
 		Status:  status,

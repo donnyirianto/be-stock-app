@@ -9,7 +9,7 @@ import (
 )
 
 // ActLogin handles the login logic
-func (uc *LoginUsecaseImpl) RefreshToken(username, nama, role string) (*utils.Response[map[string]interface{}], error) {
+func (uc *LoginUsecaseImpl) RefreshToken(username, nama, role string) (*utils.Response[map[string]any], error) {
 
 	claims := jwt.MapClaims{
 		"username": username,
@@ -38,12 +38,12 @@ func (uc *LoginUsecaseImpl) RefreshToken(username, nama, role string) (*utils.Re
 		return nil, err
 	}
 
-	result := map[string]interface{}{
+	result := map[string]any{
 		"accessToken":  tokenString,
 		"refreshToken": refreshTokenString,
 	}
 
-	return &utils.Response[map[string]interface{}]{
+	return &utils.Response[map[string]any]{
 		Code:    200,
 		Status:  "success",
 		Message: "Generate Refresh Token successful",

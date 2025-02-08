@@ -2,7 +2,7 @@ package usecase
 
 import "github.com/donnyirianto/be-stock-app/utils"
 
-func (uc *menuUsecaseImpl) GetMenu() (*utils.Response[map[string]interface{}], error) {
+func (uc *menuUsecaseImpl) GetMenu() (*utils.Response[map[string]any], error) {
 
 	resp, err := uc.menuRepository.GetMenu()
 	if err != nil {
@@ -10,18 +10,18 @@ func (uc *menuUsecaseImpl) GetMenu() (*utils.Response[map[string]interface{}], e
 	}
 
 	if len(resp) == 0 {
-		return &utils.Response[map[string]interface{}]{
+		return &utils.Response[map[string]any]{
 			Code:    404,
 			Status:  "not found",
 			Message: "Data Not Found",
-			Data:    map[string]interface{}{},
+			Data:    map[string]any{},
 		}, nil
 	}
-	return &utils.Response[map[string]interface{}]{
+	return &utils.Response[map[string]any]{
 		Code:    200,
 		Status:  "success",
 		Message: "Get Data Menu - Success",
-		Data:    map[string]interface{}{"menu": resp},
+		Data:    map[string]any{"menu": resp},
 	}, nil
 
 }
