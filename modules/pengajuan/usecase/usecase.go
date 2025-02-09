@@ -10,6 +10,7 @@ type PengajuanUsecase interface {
 	AddPengajuan(req *domain.RequestData, usernames string) (*utils.Response[map[string]any], error)
 	EditPengajuan(id string) (*utils.Response[map[string]any], error)
 	SaveEditPengajuan(req *domain.RequestData, id string) (*utils.Response[map[string]any], error)
+	UpdateStatus(req *domain.RequestDataStatus, id string) (*utils.Response[map[string]any], error)
 }
 
 type pengajuanUsecaseImpl struct {

@@ -4,6 +4,9 @@ import (
 	"errors"
 )
 
+type RequestDataStatus struct {
+	Status string `json:"status" validate:"required"`
+}
 type DetailItem struct {
 	IdProduk string `json:"id_produk" validate:"required"`
 	Harga    string `json:"harga" validate:"required"`
@@ -53,6 +56,7 @@ type PengajuanRepository interface {
 	EditPengajuanDetail(id string) ([]*DetailItemPengajuan, error)
 	SaveEditPengajuan(req *RequestData, id string) error
 	SaveEditPengajuanDetail(data []string, id string) error
+	UpdateStatus(req *RequestDataStatus, id string) error
 }
 
 var ErrInvalidCredentials = errors.New("invalid credentials")

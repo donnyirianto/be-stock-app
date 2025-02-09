@@ -26,5 +26,6 @@ func (h *PengajuanHandler) RegisterRoutes(router fiber.Router) {
 	router.Post("/", h.AddPengajuan)
 	router.Get("/edit/:id", h.EditPengajuan)
 	router.Post("/edit/:id", h.SaveEditPengajuan)
+	router.Post("/status/:id", h.UpdateStatus)
 
 }

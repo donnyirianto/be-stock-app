@@ -2,7 +2,7 @@
 
 set -e
 
-APP_NAME="app"
+APP_NAME="stock-app"
 
 SOURCE_DIR="./"
 
