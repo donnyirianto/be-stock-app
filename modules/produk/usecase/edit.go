@@ -11,7 +11,7 @@ func (uc *produkUsecaseImpl) EditProduk(id string) (*utils.Response[map[string]a
 
 	if len(resp) == 0 {
 		return &utils.Response[map[string]any]{
-			Code:    404,
+			Code:    200,
 			Status:  "not found",
 			Message: "Data Not Found",
 			Data:    map[string]any{},

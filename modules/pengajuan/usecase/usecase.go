@@ -8,8 +8,8 @@ import (
 type PengajuanUsecase interface {
 	GetPengajuan() (*utils.Response[map[string]any], error)
 	AddPengajuan(req *domain.RequestData, usernames string) (*utils.Response[map[string]any], error)
-	//EditPengajuan(id string) (*utils.Response[map[string]any], error)
-
+	EditPengajuan(id string) (*utils.Response[map[string]any], error)
+	SaveEditPengajuan(req *domain.RequestData, id string) (*utils.Response[map[string]any], error)
 }
 
 type pengajuanUsecaseImpl struct {

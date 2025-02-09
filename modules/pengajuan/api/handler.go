@@ -24,6 +24,7 @@ func NewPengajuanHandler(pengajuan usecase.PengajuanUsecase) *PengajuanHandler {
 func (h *PengajuanHandler) RegisterRoutes(router fiber.Router) {
 	router.Get("/", h.GetPengajuan)
 	router.Post("/", h.AddPengajuan)
-	//router.Get("/edit/:id", h.EditPengajuan)
+	router.Get("/edit/:id", h.EditPengajuan)
+	router.Post("/edit/:id", h.SaveEditPengajuan)
 
 }
