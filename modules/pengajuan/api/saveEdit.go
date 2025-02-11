@@ -28,6 +28,10 @@ func (h *PengajuanHandler) SaveEditPengajuan(c *fiber.Ctx) error {
 		return utils.SendJSONResponseError(c, fiber.StatusBadRequest, "error", validationErrors)
 	}
 
+	if len(requestBody.DetailItem) == 0 {
+		return utils.SendJSONResponseError(c, fiber.StatusBadRequest, "error", "Detail Produk harus di isi!")
+	}
+
 	resp, err := h.pengajuan.SaveEditPengajuan(&requestBody, id)
 	if err != nil {
 		return utils.SendJSONResponseError(c, resp.Code, resp.Status, resp.Message)
