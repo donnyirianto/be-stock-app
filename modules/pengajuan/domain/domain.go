@@ -16,6 +16,7 @@ type DetailItemPengajuan struct {
 	IdProduk string `json:"id_produk"`
 	Nama     string `json:"nama"`
 	Merk     string `json:"merk"`
+	Tipe     string `json:"tipe"`
 	Satuan   string `json:"satuan"`
 	Harga    int    `json:"harga"`
 }
